@@ -27,22 +27,49 @@ export default class Device extends React.Component {
       return <Loading />
     }
 
-    let deviceInfo = this.deviceInfo
+    let di = this.deviceInfo
+
+    /*
+
+    device.putString("phoneNo", easyDeviceMod.getPhoneNo());
+    device.putString("radioVer", easyDeviceMod.getRadioVer());
+    device.putString("fingerprint", easyDeviceMod.getFingerprint());
+    device.putString("buildBrand", easyDeviceMod.getBuildBrand());
+    device.putString("buildHost", easyDeviceMod.getBuildHost());
+    device.putString("buildTags", easyDeviceMod.getBuildTags());
+    device.putDouble("buildTime", easyDeviceMod.getBuildTime());
+    device.putString("buildUser", easyDeviceMod.getBuildUser());
+    device.putString("buildVersionRelease", easyDeviceMod.getBuildVersionRelease());
+*/
 
     return (
       <RowContainer>
-        <RowItem title="Device" value={deviceInfo.device} />
-        <RowItem title="Device Type" value={deviceInfo.deviceType} />
-        <RowItem title="Model" value={deviceInfo.model} />
-        <RowItem title="Manufacturer" value={deviceInfo.manufacturer} />
-        <RowItem title="Phone Type" value={deviceInfo.phoneType} />
-        <RowItem title="board" value={deviceInfo.board} />
-        <RowItem title="product" value={deviceInfo.product} />
-        <RowItem title="Hardware" value={deviceInfo.hardware} />
-        <RowItem title="Orientation" value={deviceInfo.orientation} />
-        <RowItem title="Display ID" value={deviceInfo.screenDisplayID} />
-        <RowItem title="Bootloader" value={deviceInfo.bootloader} />
-        <RowItem title="Device Rooted" value={deviceInfo.isDeviceRooted} />
+        <RowItem title="Device" value={di.device} />
+        <RowItem title="Device Type" value={di.deviceType} />
+        <RowItem title="Model" value={di.model} />
+        <RowItem title="Manufacturer" value={di.manufacturer} />
+        <RowItem title="Phone Type" value={di.phoneType} />
+        <RowItem title="board" value={di.board} />
+        <RowItem title="product" value={di.product} />
+        <RowItem title="Hardware" value={di.hardware} />
+        <RowItem title="Orientation" value={di.orientation} />
+        <RowItem title="Display ID" value={di.screenDisplayID} />
+        <RowItem title="Bootloader" value={di.bootloader} />
+        <RowItem title="Device Rooted" value={di.isDeviceRooted} />
+        <RowItem title="Build Codename" value={di.buildVersionCodename} />
+        <RowItem title="Build Incremental" value={di.buildVersionIncremental} />
+        <RowItem title="Build SDK" value={di.buildVersionSDK} />
+        <RowItem title="OS Codename" value={di.osCodeName} />
+        <RowItem title="OS Version" value={di.osVersion} />
+        <RowItem title="Build Brand" value={di.buildBrand} />
+        <RowItem title="Build Host" value={di.buildHost} />
+        <RowItem title="Build Tags" value={di.buildTags} />
+        <RowItem title="Build Time" value={di.buildTime} />
+        <RowItem title="Build User" value={di.buildUser} />
+        <RowItem title="Build Ver Release" value={di.buildVersionRelease} />
+        <RowItem title="Phone Number" value={di.phoneNo} />
+        <RowItem title="Radio Version" value={di.radioVer} />
+        <RowItem title="Fingerprint" value={di.fingerprint} />
       </RowContainer>
     )
   }
