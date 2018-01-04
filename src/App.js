@@ -3,12 +3,15 @@ import { StyleSheet, View } from 'react-native'
 import { TabNavigator } from 'react-navigation'
 
 import Battery from './screens/Battery'
+import Device from './screens/Device'
 
 const TabNav = TabNavigator(
   {
+    Device: { screen: Device },
     Battery: { screen: Battery },
   },
   {
+    initialRouteName: 'Device',
     lazy: true,
     tabBarOptions: {
       scrollEnabled: true,

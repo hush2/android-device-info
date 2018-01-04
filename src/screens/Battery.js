@@ -1,6 +1,7 @@
 import React from 'react'
-import { View, Text, ScrollView, NativeModules, StyleSheet } from 'react-native'
+import { View, Text, NativeModules, StyleSheet } from 'react-native'
 import RowItem from '../components/RowItem'
+import RowContainer from '../components/RowContainer'
 import Loading from '../components/Loading'
 
 export default class Battery extends React.Component {
@@ -8,9 +9,7 @@ export default class Battery extends React.Component {
     tabBarLabel: 'Battery',
   }
 
-  state = {
-    loading: true,
-  }
+  state = { loading: true }
 
   componentDidMount() {
     let device = NativeModules.RNEasyDeviceInfo
@@ -37,7 +36,7 @@ export default class Battery extends React.Component {
       color = '#d89e25'
     }
     return (
-      <ScrollView>
+      <RowContainer>
         <View style={s.batt}>
           <Text style={[s.batteryPct, { color: color }]}>{battPct}%</Text>
         </View>
@@ -53,7 +52,7 @@ export default class Battery extends React.Component {
           <RowItem title="Device Charging" value={batt.isDeviceCharging} />
           <RowItem title="Charging Source" value={batt.chargingSource} />
         </View>
-      </ScrollView>
+      </RowContainer>
     )
   }
 }
@@ -61,7 +60,7 @@ export default class Battery extends React.Component {
 const s = StyleSheet.create({
   batt: {
     alignItems: 'center',
-    marginVertical: 20,
+    marginBottom: 20,
   },
   batteryPct: {
     fontSize: 100,
