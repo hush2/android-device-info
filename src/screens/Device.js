@@ -29,19 +29,6 @@ export default class Device extends React.Component {
 
     let di = this.deviceInfo
 
-    /*
-
-    device.putString("phoneNo", easyDeviceMod.getPhoneNo());
-    device.putString("radioVer", easyDeviceMod.getRadioVer());
-    device.putString("fingerprint", easyDeviceMod.getFingerprint());
-    device.putString("buildBrand", easyDeviceMod.getBuildBrand());
-    device.putString("buildHost", easyDeviceMod.getBuildHost());
-    device.putString("buildTags", easyDeviceMod.getBuildTags());
-    device.putDouble("buildTime", easyDeviceMod.getBuildTime());
-    device.putString("buildUser", easyDeviceMod.getBuildUser());
-    device.putString("buildVersionRelease", easyDeviceMod.getBuildVersionRelease());
-*/
-
     return (
       <RowContainer>
         <RowItem title="Device" value={di.device} />

@@ -18,6 +18,7 @@ export default class RowItem extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
+    paddingVertical: 2,
     flexDirection: 'row',
     marginHorizontal: 20,
   },
