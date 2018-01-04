@@ -31,8 +31,6 @@ export default class Hardware extends React.Component {
       this.locInfo = await device.getLocationInfo()
       this.nfcInfo = await device.getNfcInfo()
       this.memInfo = await device.getMemoryInfo(unit)
-
-      console.log(this.memInfo)
     } catch (err) {
       console.log(err)
     }
