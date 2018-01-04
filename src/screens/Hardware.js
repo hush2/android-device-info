@@ -86,7 +86,6 @@ export default class Hardware extends React.Component {
 
 const s = StyleSheet.create({
   header: {
-    // fontSize: 15,
     fontWeight: 'bold',
     marginHorizontal: 20,
     color: '#222',

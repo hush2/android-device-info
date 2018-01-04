@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import { StatusBar, StyleSheet, View } from 'react-native'
 import { TabNavigator } from 'react-navigation'
 
 import Battery from './screens/Battery'
@@ -24,6 +24,9 @@ const TabNav = TabNavigator(
     tabBarOptions: {
       scrollEnabled: true,
       showIcon: true,
+      style: {
+        backgroundColor: '#1976d2',
+      },
     },
   }
 )
@@ -32,6 +35,7 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <StatusBar backgroundColor="#1976d2" />
         <TabNav />
       </View>
     )
