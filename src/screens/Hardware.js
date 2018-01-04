@@ -66,16 +66,16 @@ export default class Hardware extends React.Component {
         <RowItem title="External Available" value={aems} />
         <RowItem title="" />
         <Header>FINGERPRINT</Header>
-        <RowItem title="Fingerprint Present" value={this.fpInfo.isFingerprintSensorPresent} />
-        <RowItem title="Fingerprints Enrolled" value={this.fpInfo.areFingerprintsEnrolled} />
+        <RowItem title="is Present" value={this.fpInfo.isFingerprintSensorPresent} />
+        <RowItem title="is Enrolled" value={this.fpInfo.areFingerprintsEnrolled} />
         <RowItem title="" />
         <Header>NFC</Header>
-        <RowItem title="NFC Present" value={this.nfcInfo.isNfcPresent} />
-        <RowItem title="NFC Enabled" value={this.nfcInfo.isNfcEnabled} />
+        <RowItem title="is Present" value={this.nfcInfo.isNfcPresent} />
+        <RowItem title="is Enabled" value={this.nfcInfo.isNfcEnabled} />
         <RowItem title="" />
         <Header>LOCATION</Header>
-        <RowItem title="Longitute" value={this.locInfo.long} />
-        <RowItem title="Lattitude" value={this.locInfo.latt} />
+        <RowItem title="Longitude" value={this.locInfo.long} />
+        <RowItem title="Latitude" value={this.locInfo.latt} />
         <RowItem title="" />
         <Header>ABI</Header>
         <RowItem title="Supported ABIs" value={this.abiInfo.supportedABI} />
