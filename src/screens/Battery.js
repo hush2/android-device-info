@@ -31,7 +31,7 @@ export default class Battery extends React.Component {
 
     let batt = this.batteryInfo
     let battPct = batt.batteryPercentage
-    let color = '#006400'
+    let color = '#008800'
     if (battPct < 25) {
       color = '#ca2818'
     } else if (battPct < 50) {
