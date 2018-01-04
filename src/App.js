@@ -23,6 +23,7 @@ const TabNav = TabNavigator(
     lazy: true,
     tabBarOptions: {
       scrollEnabled: true,
+      showIcon: true,
     },
   }
 )

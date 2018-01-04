@@ -3,10 +3,12 @@ import { StyleSheet, NativeModules, View } from 'react-native'
 import RowItem from '../components/RowItem'
 import RowContainer from '../components/RowContainer'
 import Loading from '../components/Loading'
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 export default class Sensors extends React.Component {
   static navigationOptions = {
     tabBarLabel: 'Sensors',
+    tabBarIcon: () => <Icon name="eye-outline" size={25} color="white" />,
   }
 
   state = { loading: true }

@@ -3,10 +3,12 @@ import { View, Text, NativeModules, StyleSheet } from 'react-native'
 import RowItem from '../components/RowItem'
 import RowContainer from '../components/RowContainer'
 import Loading from '../components/Loading'
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 export default class Battery extends React.Component {
   static navigationOptions = {
     tabBarLabel: 'Battery',
+    tabBarIcon: () => <Icon name="battery-30" size={25} color="white" />,
   }
 
   state = { loading: true }
@@ -42,10 +44,7 @@ export default class Battery extends React.Component {
         </View>
         <View>
           <RowItem title="Battery Health" value={batt.batteryHealth} />
-          <RowItem
-            title="Battery Temperature"
-            value={batt.batteryTemperature}
-          />
+          <RowItem title="Battery Temperature" value={batt.batteryTemperature} />
           <RowItem title="Battery Technology" value={batt.batteryTechnology} />
           <RowItem title="Battery Voltage" value={batt.batteryVoltage} />
           <RowItem title="Battery Present" value={batt.isBatteryPresent} />

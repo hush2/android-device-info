@@ -3,10 +3,12 @@ import { NativeModules } from 'react-native'
 import RowItem from '../components/RowItem'
 import RowContainer from '../components/RowContainer'
 import Loading from '../components/Loading'
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 export default class Device extends React.Component {
   static navigationOptions = {
     tabBarLabel: 'Device',
+    tabBarIcon: () => <Icon name="cellphone-android" size={25} color="white" />,
   }
 
   state = { loading: true }

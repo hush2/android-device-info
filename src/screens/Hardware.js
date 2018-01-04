@@ -4,6 +4,7 @@ import RowItem from '../components/RowItem'
 import RowContainer from '../components/RowContainer'
 import Loading from '../components/Loading'
 import roundTo from 'round-to'
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 const unit = 'GB'
 
@@ -16,6 +17,7 @@ class Header extends React.Component {
 export default class Hardware extends React.Component {
   static navigationOptions = {
     tabBarLabel: 'Hardware',
+    tabBarIcon: () => <Icon name="chip" size={25} color="white" />,
   }
 
   state = {
