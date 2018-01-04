@@ -19,7 +19,7 @@ const TabNav = TabNavigator(
     SIM: { screen: SIM },
   },
   {
-    initialRouteName: 'SIM',
+    initialRouteName: 'Device',
     lazy: true,
     tabBarOptions: {
       scrollEnabled: true,

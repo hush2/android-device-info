@@ -2,6 +2,7 @@ import React from 'react'
 import { StyleSheet, NativeModules, View } from 'react-native'
 import RowItem from '../components/RowItem'
 import RowContainer from '../components/RowContainer'
+import Loading from '../components/Loading'
 
 export default class Sensors extends React.Component {
   static navigationOptions = {
@@ -14,8 +15,8 @@ export default class Sensors extends React.Component {
     let device = NativeModules.RNEasyDeviceInfo
     device
       .getSensorInfo()
-      .then((sensorInfo) => {
-        this.sensorsInfo = sensorInfo
+      .then((sensor) => {
+        this.sensors = sensor
         this.setState({ loading: false })
       })
       .catch((e) => console.log(e))
@@ -23,10 +24,10 @@ export default class Sensors extends React.Component {
 
   render() {
     if (this.state.loading) {
-      return <View />
+      return <Loading />
     }
 
-    let sensors = this.sensorsInfo.map((sensor, index) => {
+    let sensors = this.sensors.map((sensor, index) => {
       return (
         <View key={index} style={s.rows}>
           <RowItem title="Name" value={sensor.name} />
