@@ -4,17 +4,17 @@ import { TabNavigator } from 'react-navigation'
 
 import Battery from './screens/Battery'
 import Device from './screens/Device'
-import Memory from './screens/Memory'
 import System from './screens/System'
 import Sensors from './screens/Sensors'
+import Hardware from './screens/Hardware'
 
 const TabNav = TabNavigator(
   {
+    Hardware: { screen: Hardware },
     Sensors: { screen: Sensors },
     System: { screen: System },
     Device: { screen: Device },
     Battery: { screen: Battery },
-    Memory: { screen: Memory },
   },
   {
     // initialRouteName: 'Device',
