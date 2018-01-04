@@ -5,15 +5,17 @@ import { TabNavigator } from 'react-navigation'
 import Battery from './screens/Battery'
 import Device from './screens/Device'
 import Memory from './screens/Memory'
+import System from './screens/System'
 
 const TabNav = TabNavigator(
   {
+    System: { screen: System },
     Device: { screen: Device },
     Battery: { screen: Battery },
     Memory: { screen: Memory },
   },
   {
-    initialRouteName: 'Device',
+    // initialRouteName: 'Device',
     lazy: true,
     tabBarOptions: {
       scrollEnabled: true,
