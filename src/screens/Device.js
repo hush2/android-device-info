@@ -5,12 +5,11 @@ import RowContainer from '../components/RowContainer'
 import Loading from '../components/Loading'
 
 export default class Device extends React.Component {
-  state = { loading: true }
-
   static navigationOptions = {
     tabBarLabel: 'Device',
-    // drawerIcon: () => <Icon name="cellphone-android" size={25} color="red" />,
   }
+
+  state = { loading: true }
 
   componentDidMount() {
     let device = NativeModules.RNEasyDeviceInfo
@@ -24,11 +23,12 @@ export default class Device extends React.Component {
   }
 
   render() {
-    if (this.state.loading === true) {
+    if (this.state.loading) {
       return <Loading />
     }
 
     let deviceInfo = this.deviceInfo
+
     return (
       <RowContainer>
         <RowItem title="Device" value={deviceInfo.device} />
@@ -39,10 +39,8 @@ export default class Device extends React.Component {
         <RowItem title="board" value={deviceInfo.board} />
         <RowItem title="product" value={deviceInfo.product} />
         <RowItem title="Hardware" value={deviceInfo.hardware} />
-
         <RowItem title="Orientation" value={deviceInfo.orientation} />
         <RowItem title="Display ID" value={deviceInfo.screenDisplayID} />
-
         <RowItem title="Bootloader" value={deviceInfo.bootloader} />
         <RowItem title="Device Rooted" value={deviceInfo.isDeviceRooted} />
       </RowContainer>

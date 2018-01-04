@@ -4,11 +4,13 @@ import { TabNavigator } from 'react-navigation'
 
 import Battery from './screens/Battery'
 import Device from './screens/Device'
+import Memory from './screens/Memory'
 
 const TabNav = TabNavigator(
   {
     Device: { screen: Device },
     Battery: { screen: Battery },
+    Memory: { screen: Memory },
   },
   {
     initialRouteName: 'Device',
