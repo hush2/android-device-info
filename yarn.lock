@@ -11,8 +11,8 @@
     js-tokens "^3.0.0"
 
 "@types/node@*":
-  version "8.5.5"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-8.5.5.tgz#6f9e8164ae1a55a9beb1d2571cfb7acf9d720c61"
+  version "8.5.7"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-8.5.7.tgz#9c498c35af354dcfbca3790fb2e81129e93cf0e2"
 
 abab@^1.0.3:
   version "1.0.4"
@@ -3512,6 +3512,10 @@ react-devtools-core@^2.5.0:
   dependencies:
     shell-quote "^1.6.1"
     ws "^2.0.3"
+
+react-native-android-device-info@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/react-native-android-device-info/-/react-native-android-device-info-0.2.1.tgz#99387fc958ba7786ffc5e533d862e32cb7d301f7"
 
 react-native-dismiss-keyboard@1.0.0:
   version "1.0.0"

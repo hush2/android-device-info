@@ -1,6 +1,6 @@
 {
   "name": "android-device-info",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
@@ -9,6 +9,7 @@
   "dependencies": {
     "react": "16.0.0",
     "react-native": "0.51.0",
+    "react-native-android-device-info": "^0.2.1",
     "react-native-vector-icons": "^4.4.3",
     "react-navigation": "1.0.0-beta.21",
     "round-to": "^2.0.0"
