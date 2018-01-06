@@ -4,6 +4,7 @@ import RowItem from '../components/RowItem'
 import RowContainer from '../components/RowContainer'
 import Loading from '../components/Loading'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
+import roundTo from 'round-to'
 
 export default class Battery extends React.Component {
   static navigationOptions = {
@@ -37,11 +38,12 @@ export default class Battery extends React.Component {
     } else if (battPct < 50) {
       color = '#d89e25'
     }
+    let temp = roundTo(batt.batteryTemperature, 0) + '°'
     return (
       <RowContainer>
         <Text style={[s.batteryPct, { color }]}>{battPct}%</Text>
         <RowItem title="Health" value={batt.batteryHealth} />
-        <RowItem title="Temperature" value={batt.batteryTemperature} />
+        <RowItem title="Temperature" value={temp} />
         <RowItem title="Technology" value={batt.batteryTechnology} />
         <RowItem title="Voltage" value={batt.batteryVoltage} />
         <RowItem title="Battery Present?" value={batt.isBatteryPresent} />
