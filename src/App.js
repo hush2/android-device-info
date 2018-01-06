@@ -20,7 +20,7 @@ const TabNav = TabNavigator(
   },
   {
     initialRouteName: 'Device',
-    lazy: true,
+    lazy: true, // Note: lazy is dropped in beta.23
     tabBarOptions: {
       scrollEnabled: true,
       showIcon: true,
