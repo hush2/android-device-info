@@ -1,7 +1,8 @@
 import React from 'react'
-import { StyleSheet, NativeModules, View } from 'react-native'
+import { NativeModules, View } from 'react-native'
 import RowItem from '../components/RowItem'
 import RowContainer from '../components/RowContainer'
+import Header from '../components/Header'
 import Loading from '../components/Loading'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
@@ -11,7 +12,7 @@ export default class Sensors extends React.Component {
     tabBarIcon: () => <Icon name="eye-outline" size={25} color="white" />,
   }
 
-  state = { loading: true }
+  state = { ready: false }
 
   componentDidMount() {
     let device = NativeModules.RNAndroidDeviceInfo
@@ -19,19 +20,20 @@ export default class Sensors extends React.Component {
       .getSensorInfo()
       .then((sensor) => {
         this.sensors = sensor
-        this.setState({ loading: false })
+        this.setState({ ready: true })
       })
       .catch((e) => console.log(e))
   }
 
   render() {
-    if (this.state.loading) {
+    if (!this.state.ready) {
       return <Loading />
     }
 
     let sensors = this.sensors.map((sensor, index) => {
       return (
-        <View key={index} style={s.rows}>
+        <View key={index}>
+          <Header>Sensor {index} </Header>
           <RowItem title="Name" value={sensor.name} />
           <RowItem title="Vendor" value={sensor.vendor} />
           <RowItem title="Version" value={sensor.version} />
@@ -44,11 +46,3 @@ export default class Sensors extends React.Component {
     return <RowContainer>{sensors}</RowContainer>
   }
 }
-
-const s = StyleSheet.create({
-  rows: {
-    paddingVertical: 10,
-    borderBottomColor: 'rgba(204,204,204,0.25)',
-    borderBottomWidth: 1,
-  },
-})

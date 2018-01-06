@@ -14,6 +14,6 @@ const s = StyleSheet.create({
     marginHorizontal: 20,
     color: '#222',
     textAlign: 'center',
-    marginVertical: 3,
+    marginVertical: 6,
   },
 })
