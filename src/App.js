@@ -8,6 +8,7 @@ import Sensors from './screens/Sensors'
 import Hardware from './screens/Hardware'
 import Network from './screens/Network'
 import SIM from './screens/SIM'
+import About from './screens/About'
 
 const TabNav = TabNavigator(
   {
@@ -17,6 +18,7 @@ const TabNav = TabNavigator(
     Battery: { screen: Battery },
     Network: { screen: Network },
     SIM: { screen: SIM },
+    About: { screen: About },
   },
   {
     initialRouteName: 'Device',

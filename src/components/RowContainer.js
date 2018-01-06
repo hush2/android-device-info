@@ -13,6 +13,6 @@ export default class RowContainer extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 20,
+    marginTop: 8,
   },
 })
