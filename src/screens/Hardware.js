@@ -25,7 +25,7 @@ export default class Hardware extends React.Component {
   }
 
   async componentDidMount() {
-    const device = NativeModules.RNEasyDeviceInfo
+    const device = NativeModules.RNAndroidDeviceInfo
     try {
       this.fpInfo = await device.getFingerprintInfo()
       this.displayInfo = await device.getDisplayInfo()

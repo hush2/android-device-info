@@ -14,7 +14,7 @@ export default class Battery extends React.Component {
   state = { loading: true }
 
   componentDidMount() {
-    let device = NativeModules.RNEasyDeviceInfo
+    let device = NativeModules.RNAndroidDeviceInfo
     device
       .getBatteryInfo()
       .then((batteryInfo) => {

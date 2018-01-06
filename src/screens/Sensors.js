@@ -14,7 +14,7 @@ export default class Sensors extends React.Component {
   state = { loading: true }
 
   componentDidMount() {
-    let device = NativeModules.RNEasyDeviceInfo
+    let device = NativeModules.RNAndroidDeviceInfo
     device
       .getSensorInfo()
       .then((sensor) => {

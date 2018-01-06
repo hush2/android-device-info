@@ -3,7 +3,7 @@ package com.androiddeviceinfo;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
-import com.github.hush2.RNEasyDeviceInfo.RNEasyDeviceInfoPackage;
+import com.github.hush2.RNAndroidDeviceInfo.RNEasyDeviceInfoPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;

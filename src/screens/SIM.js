@@ -14,7 +14,7 @@ export default class SIM extends React.Component {
   state = { loading: true }
 
   async componentDidMount() {
-    const device = NativeModules.RNEasyDeviceInfo
+    const device = NativeModules.RNAndroidDeviceInfo
     try {
       this.sim = await device.getSimInfo()
       this.device = await device.getDeviceInfo()
