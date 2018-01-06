@@ -11,35 +11,35 @@ export default class Network extends React.Component {
     tabBarIcon: () => <Icon name="access-point-network" size={25} color="white" />,
   }
 
-  state = { loading: true }
+  state = { ready: false }
 
   componentDidMount() {
     let device = NativeModules.RNAndroidDeviceInfo
     device
       .getNetworkInfo()
-      .then((netInfo) => {
-        this.netInfo = netInfo
-        this.setState({ loading: false })
+      .then((net) => {
+        this.net = net
+        this.setState({ ready: true })
       })
       .catch((e) => console.log(e))
   }
 
   render() {
-    if (this.state.loading) {
+    if (!this.state.ready) {
       return <Loading />
     }
-    const netInfo = this.netInfo
+    const net = this.net
     return (
       <RowContainer>
-        <RowItem title="Network Type" value={netInfo.networkType} />
-        <RowItem title="Network Available" value={netInfo.isNetworkAvailable} />
-        <RowItem title="WiFi Enabled" value={netInfo.isWifiEnabled} />
-        <RowItem title="IPV4 Address" value={netInfo.iPv4Address} />
-        <RowItem title="IPV6 Address" value={netInfo.iPv6Address} />
-        <RowItem title="WiFi SSID" value={netInfo.wifiSSID} />
-        <RowItem title="WiFi BSSID" value={netInfo.wifiBSSID} />
-        <RowItem title="WiFi Link Speed" value={netInfo.wifiLinkSpeed} />
-        <RowItem title="WiFi MAC Address" value={netInfo.wifiMAC} />
+        <RowItem title="Network Type" value={net.networkType} />
+        <RowItem title="Network Available?" value={net.isNetworkAvailable} />
+        <RowItem title="WiFi Enabled" value={net.isWifiEnabled} />
+        <RowItem title="IPV4 Address" value={net.iPv4Address} />
+        <RowItem title="IPV6 Address" value={net.iPv6Address} />
+        <RowItem title="WiFi SSID" value={net.wifiSSID} />
+        <RowItem title="WiFi BSSID" value={net.wifiBSSID} />
+        <RowItem title="WiFi Link Speed" value={net.wifiLinkSpeed} />
+        <RowItem title="WiFi MAC Address" value={net.wifiMAC} />
       </RowContainer>
     )
   }
