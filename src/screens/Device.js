@@ -39,11 +39,10 @@ export default class Device extends React.Component {
         <RowItem title="Model" value={di.model} />
         <RowItem title="Manufacturer" value={di.manufacturer} />
         <RowItem title="Phone Type" value={di.phoneType} />
-        <RowItem title="Phone Number" value={di.phoneNo} />
         <RowItem title="Radio Version" value={di.radioVer} />
         <RowItem title="Fingerprint" value={di.fingerprint} />
-        <RowItem title="board" value={di.board} />
-        <RowItem title="product" value={di.product} />
+        <RowItem title="Board" value={di.board} />
+        <RowItem title="Product" value={di.product} />
         <RowItem title="Hardware" value={di.hardware} />
         <RowItem title="Orientation" value={di.orientation} />
         <RowItem title="Display ID" value={di.screenDisplayID} />
