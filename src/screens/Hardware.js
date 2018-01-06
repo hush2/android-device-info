@@ -20,12 +20,12 @@ export default class Hardware extends React.Component {
   async componentDidMount() {
     const device = NativeModules.RNAndroidDeviceInfo
     try {
-      this.fpInfo = await device.getFingerprintInfo()
-      this.displayInfo = await device.getDisplayInfo()
-      this.abiInfo = await device.getAbiInfo()
-      this.locInfo = await device.getLocationInfo()
-      this.nfcInfo = await device.getNfcInfo()
-      this.memInfo = await device.getMemoryInfo(unit)
+      this.fp = await device.getFingerprintInfo()
+      this.di = await device.getDisplayInfo()
+      this.abi = await device.getAbiInfo()
+      this.loc = await device.getLocationInfo()
+      this.nfc = await device.getNfcInfo()
+      this.mem = await device.getMemoryInfo(unit)
 
       this.setState({ ready: true })
     } catch (err) {
@@ -38,19 +38,19 @@ export default class Hardware extends React.Component {
       return <Loading />
     }
 
-    let total = roundTo(parseFloat(this.memInfo.totalRAM), 2) + ' ' + unit
-    let tims = roundTo(parseFloat(this.memInfo.totalInternalMemorySize), 2) + ' ' + unit
-    let aims = roundTo(parseFloat(this.memInfo.availableInternalMemorySize), 2) + ' ' + unit
-    let tems = roundTo(parseFloat(this.memInfo.totalExternalMemorySize), 2) + ' ' + unit
-    let aems = roundTo(parseFloat(this.memInfo.availableExternalMemorySize), 2) + ' ' + unit
+    let total = roundTo(parseFloat(this.mem.totalRAM), 2) + ' ' + unit
+    let tims = roundTo(parseFloat(this.mem.totalInternalMemorySize), 2) + ' ' + unit
+    let aims = roundTo(parseFloat(this.mem.availableInternalMemorySize), 2) + ' ' + unit
+    let tems = roundTo(parseFloat(this.mem.totalExternalMemorySize), 2) + ' ' + unit
+    let aems = roundTo(parseFloat(this.mem.availableExternalMemorySize), 2) + ' ' + unit
 
     return (
       <RowContainer>
         <Header>DISPLAY</Header>
-        <RowItem title="Resolution" value={this.displayInfo.resolution} />
-        <RowItem title="Density" value={this.displayInfo.density} />
-        <RowItem title="Refresh Rate" value={roundTo(this.displayInfo.refreshRate, 2)} />
-        <RowItem title="Pysical Size" value={roundTo(this.displayInfo.physicalSize, 2)} />
+        <RowItem title="Resolution" value={this.di.resolution} />
+        <RowItem title="Density" value={this.di.density} />
+        <RowItem title="Refresh Rate" value={roundTo(this.di.refreshRate, 2)} />
+        <RowItem title="Pysical Size" value={roundTo(this.di.physicalSize, 2)} />
         <Header>MEMORY</Header>
         <RowItem title="Total RAM" value={total} />
         <RowItem title="Internal Total" value={tims} />
@@ -58,16 +58,16 @@ export default class Hardware extends React.Component {
         <RowItem title="External Total" value={tems} />
         <RowItem title="External Available" value={aems} />
         <Header>FINGERPRINT</Header>
-        <RowItem title="is Present?" value={this.fpInfo.isFingerprintSensorPresent} />
-        <RowItem title="is Enrolled?" value={this.fpInfo.areFingerprintsEnrolled} />
+        <RowItem title="is Present?" value={this.fp.isFingerprintSensorPresent} />
+        <RowItem title="is Enrolled?" value={this.fp.areFingerprintsEnrolled} />
         <Header>NFC</Header>
-        <RowItem title="is Present?" value={this.nfcInfo.isNfcPresent} />
-        <RowItem title="is Enabled?" value={this.nfcInfo.isNfcEnabled} />
+        <RowItem title="is Present?" value={this.nfc.isNfcPresent} />
+        <RowItem title="is Enabled?" value={this.nfc.isNfcEnabled} />
         <Header>LOCATION</Header>
-        <RowItem title="Longitude" value={this.locInfo.long} />
-        <RowItem title="Latitude" value={this.locInfo.latt} />
+        <RowItem title="Longitude" value={this.loc.long} />
+        <RowItem title="Latitude" value={this.loc.latt} />
         <Header>ABI</Header>
-        <RowItem title="Supported ABIs" value={this.abiInfo.supportedABI} />
+        <RowItem title="Supported ABIs" value={this.abi.supportedABI} />
       </RowContainer>
     )
   }

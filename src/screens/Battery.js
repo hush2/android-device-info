@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, NativeModules, StyleSheet } from 'react-native'
+import { Text, NativeModules, StyleSheet } from 'react-native'
 import RowItem from '../components/RowItem'
 import RowContainer from '../components/RowContainer'
 import Loading from '../components/Loading'
@@ -11,25 +11,25 @@ export default class Battery extends React.Component {
     tabBarIcon: () => <Icon name="battery-30" size={25} color="white" />,
   }
 
-  state = { loading: true }
+  state = { ready: false }
 
   componentDidMount() {
     let device = NativeModules.RNAndroidDeviceInfo
     device
       .getBatteryInfo()
-      .then((batteryInfo) => {
-        this.batteryInfo = batteryInfo
-        this.setState({ loading: false })
+      .then((battery) => {
+        this.battery = battery
+        this.setState({ ready: true })
       })
       .catch((e) => console.log(e))
   }
 
   render() {
-    if (this.state.loading) {
+    if (!this.state.ready) {
       return <Loading />
     }
 
-    let batt = this.batteryInfo
+    let batt = this.battery
     let battPct = batt.batteryPercentage
     let color = '#008800'
     if (battPct < 25) {
@@ -39,29 +39,22 @@ export default class Battery extends React.Component {
     }
     return (
       <RowContainer>
-        <View style={s.batt}>
-          <Text style={[s.batteryPct, { color: color }]}>{battPct}%</Text>
-        </View>
-        <View>
-          <RowItem title="Battery Health" value={batt.batteryHealth} />
-          <RowItem title="Battery Temperature" value={batt.batteryTemperature} />
-          <RowItem title="Battery Technology" value={batt.batteryTechnology} />
-          <RowItem title="Battery Voltage" value={batt.batteryVoltage} />
-          <RowItem title="Battery Present" value={batt.isBatteryPresent} />
-          <RowItem title="Device Charging" value={batt.isDeviceCharging} />
-          <RowItem title="Charging Source" value={batt.chargingSource} />
-        </View>
+        <Text style={[s.batteryPct, { color }]}>{battPct}%</Text>
+        <RowItem title="Health" value={batt.batteryHealth} />
+        <RowItem title="Temperature" value={batt.batteryTemperature} />
+        <RowItem title="Technology" value={batt.batteryTechnology} />
+        <RowItem title="Voltage" value={batt.batteryVoltage} />
+        <RowItem title="Battery Present?" value={batt.isBatteryPresent} />
+        <RowItem title="Battery Charging?" value={batt.isDeviceCharging} />
+        <RowItem title="Charging Source" value={batt.chargingSource} />
       </RowContainer>
     )
   }
 }
 
 const s = StyleSheet.create({
-  batt: {
-    alignItems: 'center',
-    marginBottom: 20,
-  },
   batteryPct: {
+    textAlign: 'center',
     fontSize: 100,
   },
 })

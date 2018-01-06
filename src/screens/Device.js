@@ -18,8 +18,8 @@ export default class Device extends React.Component {
     let device = NativeModules.RNAndroidDeviceInfo
     device
       .getDeviceInfo()
-      .then((deviceInfo) => {
-        this.deviceInfo = deviceInfo
+      .then((di) => {
+        this.di = di
         this.setState({ ready: true })
       })
       .catch((err) => console.log(err))
@@ -30,7 +30,7 @@ export default class Device extends React.Component {
       return <Loading />
     }
 
-    let di = this.deviceInfo
+    let di = this.di
     return (
       <RowContainer>
         <Header>Phone</Header>
