@@ -25,7 +25,7 @@ const TabNav = TabNavigator(
       scrollEnabled: true,
       showIcon: true,
       style: {
-        backgroundColor: '#455a64',
+        backgroundColor: '#2770e2',
       },
     },
   }
@@ -35,7 +35,7 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <StatusBar backgroundColor="#455a64" />
+        <StatusBar backgroundColor="#335385" />
         <TabNav />
       </View>
     )
