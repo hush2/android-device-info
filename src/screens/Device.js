@@ -1,9 +1,10 @@
 import React from 'react'
 import { NativeModules } from 'react-native'
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import RowItem from '../components/RowItem'
 import RowContainer from '../components/RowContainer'
+import Header from '../components/Header'
 import Loading from '../components/Loading'
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 export default class Device extends React.Component {
   static navigationOptions = {
@@ -11,7 +12,7 @@ export default class Device extends React.Component {
     tabBarIcon: () => <Icon name="cellphone-android" size={25} color="white" />,
   }
 
-  state = { loading: true }
+  state = { ready: false }
 
   componentDidMount() {
     let device = NativeModules.RNAndroidDeviceInfo
@@ -19,46 +20,47 @@ export default class Device extends React.Component {
       .getDeviceInfo()
       .then((deviceInfo) => {
         this.deviceInfo = deviceInfo
-        this.setState({ loading: false })
+        this.setState({ ready: true })
       })
-      .catch((e) => console.log(e))
+      .catch((err) => console.log(err))
   }
 
   render() {
-    if (this.state.loading) {
+    if (!this.state.ready) {
       return <Loading />
     }
 
     let di = this.deviceInfo
-
     return (
       <RowContainer>
+        <Header>Phone</Header>
         <RowItem title="Device" value={di.device} />
         <RowItem title="Device Type" value={di.deviceType} />
         <RowItem title="Model" value={di.model} />
         <RowItem title="Manufacturer" value={di.manufacturer} />
         <RowItem title="Phone Type" value={di.phoneType} />
+        <RowItem title="Phone Number" value={di.phoneNo} />
+        <RowItem title="Radio Version" value={di.radioVer} />
+        <RowItem title="Fingerprint" value={di.fingerprint} />
         <RowItem title="board" value={di.board} />
         <RowItem title="product" value={di.product} />
         <RowItem title="Hardware" value={di.hardware} />
         <RowItem title="Orientation" value={di.orientation} />
         <RowItem title="Display ID" value={di.screenDisplayID} />
         <RowItem title="Bootloader" value={di.bootloader} />
-        <RowItem title="Device Rooted" value={di.isDeviceRooted} />
+        <RowItem title="Device Rooted?" value={di.isDeviceRooted} />
+        <Header>OS</Header>
+        <RowItem title="OS Codename" value={di.osCodeName || '-'} />
+        <RowItem title="OS Version" value={di.osVersion} />
         <RowItem title="Build Codename" value={di.buildVersionCodename} />
         <RowItem title="Build Incremental" value={di.buildVersionIncremental} />
         <RowItem title="Build SDK" value={di.buildVersionSDK} />
-        <RowItem title="OS Codename" value={di.osCodeName} />
-        <RowItem title="OS Version" value={di.osVersion} />
         <RowItem title="Build Brand" value={di.buildBrand} />
         <RowItem title="Build Host" value={di.buildHost} />
         <RowItem title="Build Tags" value={di.buildTags} />
         <RowItem title="Build Time" value={di.buildTime} />
         <RowItem title="Build User" value={di.buildUser} />
         <RowItem title="Build Ver Release" value={di.buildVersionRelease} />
-        <RowItem title="Phone Number" value={di.phoneNo} />
-        <RowItem title="Radio Version" value={di.radioVer} />
-        <RowItem title="Fingerprint" value={di.fingerprint} />
       </RowContainer>
     )
   }
