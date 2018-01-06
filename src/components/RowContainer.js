@@ -5,7 +5,7 @@ export default class RowContainer extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <ScrollView>{this.props.children}</ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>{this.props.children}</ScrollView>
       </View>
     )
   }
