@@ -26,8 +26,11 @@ const styles = StyleSheet.create({
     flex: 1,
     color: '#676767',
     fontSize: 16,
+    textAlign: 'right',
+    marginRight: 5,
   },
   value: {
+    marginLeft: 5,
     flex: 1,
     textAlign: 'left',
     fontSize: 16,
